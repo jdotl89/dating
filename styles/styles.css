@@ -1,0 +1,10 @@
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+div.row.border {
+    border-radius: 20px;
+}
+
+img.img-fluid.rounded {
+    margin-top: 50px;
+}
