@@ -11,3 +11,15 @@ function getOutDoor()
     return $outdoor;
 }
 
+function getStates()
+{
+    $states = array("Washington", "Arizona", "Delaware", "Oregon", "Utah", "California", "Nevada", "New York");
+    return $states;
+}
+
+
+function getGender()
+{
+    $gender = array("Male", "Female");
+    return $gender;
+}

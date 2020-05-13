@@ -35,7 +35,11 @@
 
                 <label for="state" class="col-mx-6 control-label"><strong>State</strong></label>
                 <div class="col-mx-6">
-                    <input  class="form-control" type="text" id="state" name="state">
+                    <select class="custom-select" name="state" id="state">
+                        <repeat group="{{ @state }}" value="{{ @stat }}">
+                            <option value="{{ @stat }}" name="state">{{ @stat }}</option>
+                        </repeat>
+                    </select>
                 </div><br>
 
                 <label class="col-mx-6 control-label"><strong>Seeking</strong></label>
@@ -59,8 +63,8 @@
                     <textarea  class="form-control"  id="bio" name="bio" rows="6" cols="50"></textarea>
                 </div>
 
-                <div class="col auto mt-4 mb-4">
-                    <button type="submit" class="btn btn-primary btn-large">next</button>
+                <div class="col text-right mt-4 mb-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Next</button>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@
 <!--container body-->
 <div class="container">
 
-    <form action="#" method="post" class="form-horizontal">
+    <form action="#" method="post" class="form-horizontal border rounded p-3 mt-4">
 
         <h1>Personal</h1>
         <hr>
@@ -46,14 +46,12 @@
 
                 <label class="col-mx-8 control-label"><strong>Gender</strong></label>
                 <div class="col-mx-8">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" type="radio" id="male" value="male">
-                        <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" type="radio" id="female" value="female">
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
+                    <repeat group="{{ @gender }}" value="{{ @gend }}">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="gender" type="radio" id="{{ @gend }}" value="{{ @gend }}">
+                            <label class="form-check-label" for="{{ @gend }}">{{ @gend }}</label>
+                        </div>
+                    </repeat>
                 </div><br>
 
                 <label for="phone" class="col-mx-8 control-label"><strong>Phone Number</strong></label>
@@ -76,17 +74,14 @@
 
                 <label class="col-mx-8 control-label"><strong>Pet Gender</strong></label>
                 <div class="col-mx-8">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="pGender" type="radio" id="pMale" value="male">
-                        <label class="form-check-label" for="pMale">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="pGender" type="radio" id="pFemale" value="female">
-                        <label class="form-check-label" for="pFemale">Female</label>
-                    </div>
+                    <repeat group="{{ @pGender }}" value="{{ @pgend }}">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="pGender" type="radio" id="p{{ @pgend }}" value="{{ @pgend }}">
+                            <label class="form-check-label" for="p{{ @pgend }}">{{ @pgend }}</label>
+                        </div>
+                    </repeat>
                 </div>
             </div>
-
 
             <div class="col-4">
                 <p>
@@ -94,18 +89,13 @@
                     Profile information can only be viewed by others with your permission.
                 </p>
             </div>
-
         </div>
-
-
-
-
         <!--<div class="col-xs-3 ">
             <input class="form-control btn btn-default"
                    type="submit" value="Next">
         </div>-->
-        <div class="text-center mb-4">
-            <button type="submit" class="btn btn-primary btn-large">next</button>
+        <div class="text-right mb-4 mr-4">
+            <button type="submit" class="btn btn-primary btn-lg">Next</button>
         </div>
     </form>
 

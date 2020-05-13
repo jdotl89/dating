@@ -24,10 +24,11 @@ $f3->route('GET /', function() {
 // personal
 $f3->route('GET|POST /personal', function($f3) {
 
+    $gender = getGender();
     //$f3->reroute('/profile');
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        var_dump($_POST);
+        //var_dump($_POST);
 
         //Store the data in the session array
         $_SESSION['first'] = $_POST['first'];
@@ -43,6 +44,9 @@ $f3->route('GET|POST /personal', function($f3) {
         $f3->reroute('/profile');
     }
 
+    $f3->set('gender', $gender);
+    $f3->set('pGender', $gender);
+
     $view = new Template();
     echo $view->render('views/personal.html');
 });
@@ -50,9 +54,11 @@ $f3->route('GET|POST /personal', function($f3) {
 // profile
 $f3->route('GET|POST /profile', function($f3) {
 
+    $state = getStates();
+
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        var_dump($_POST);
+        var_dump($_SESSION);
 
         //Store the data in the session array
         $_SESSION['email'] = $_POST['email'];
@@ -63,6 +69,8 @@ $f3->route('GET|POST /profile', function($f3) {
         //Redirect to Order 2 page
         $f3->reroute('/interests');
     }
+
+    $f3->set('state', $state);
 
     $view = new Template();
     echo $view->render('views/profile.html');
@@ -95,7 +103,7 @@ $f3->route('GET|POST /interests', function($f3) {
 
 // summary
 $f3->route('GET /summary', function() {
-    var_dump($_SESSION);
+    //var_dump($_SESSION);
     //echo "Thank You!";
     //echo "<p>" . $_SESSION['pet'] . $_SESSION['pets'] . "</p>";
 
