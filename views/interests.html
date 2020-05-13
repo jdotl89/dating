@@ -19,11 +19,42 @@
 
 <!--container body-->
 <div class="container">
-    <h1>interest</h1>
 
-    <div class="text-center mb-4">
-        <a href="summary" class="btn btn-primary btn-large">next</a>
-    </div>
+    <form id="interests" action="#" method="post" class="form-horizontal border rounded p-3 mt-4">
+
+        <h1>Interest</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!--Indoor-->
+                <label class="col-mx-12 control-label"><strong>In-door Interests</strong></label>
+                <div class="col-sm-12">
+                    <repeat group="{{ @indoor }}" value="{{ @in }}">
+                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox"
+                                      name="indoor[]"
+                                      value="{{ @in }}"> {{ ucfirst(@in) }}</label>
+                    </repeat>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <!--Outdoor-->
+                <label class="col-mx-6 control-label"><strong>Out-door Interests</strong></label>
+                <div class="col-sm-12">
+                    <repeat group="{{ @outdoor }}" value="{{ @out }}">
+                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox"
+                                                                 name="outdoor[]"
+                                                                 value="{{ @out }}"> {{ ucfirst(@out) }}</label>
+                    </repeat>
+
+                    <div class="text-center mb-2">
+                        <button type="submit" class="btn btn-primary btn-large">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 </div>
 <!-- Optional JavaScript -->
