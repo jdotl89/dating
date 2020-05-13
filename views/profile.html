@@ -19,11 +19,53 @@
 
 <!--container body-->
 <div class="container">
-    <h1>profile</h1>
 
-    <div class="text-center mb-4">
-        <a href="interests" class="btn btn-primary btn-large">next</a>
-    </div>
+    <form id="profile" action="#" method="post" class="form-horizontal border rounded p-3 mt-4">
+
+        <h1>profile</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!--OWNER INFORMATION-->
+                <label for="email" class="col-mx-6 control-label"><strong>Email</strong></label>
+                <div class="col-mx-6">
+                    <input  class="form-control" type="text" id="email" name="email">
+                </div>
+
+                <label for="state" class="col-mx-6 control-label"><strong>State</strong></label>
+                <div class="col-mx-6">
+                    <input  class="form-control" type="text" id="state" name="state">
+                </div><br>
+
+                <label class="col-mx-6 control-label"><strong>Seeking</strong></label>
+                <div class="col-mx-6">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="seek" type="radio" id="male" value="male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="seek" type="radio" id="female" value="female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                </div><br>
+            </div>
+
+
+            <div class="col-6">
+                <label for="bio" class="col-mx-6 control-label"><strong>Pet Biography</strong></label>
+
+                <div class="col-mx-6">
+                    <textarea  class="form-control"  id="bio" name="bio" rows="6" cols="50"></textarea>
+                </div>
+
+                <div class="col auto mt-4 mb-4">
+                    <a href="interests" class="btn btn-primary btn-large">next</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
 
 </div>
 <!-- Optional JavaScript -->
