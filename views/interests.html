@@ -36,6 +36,11 @@
                                       value="{{ @in }}"> {{ ucfirst(@in) }}</label>
                     </repeat>
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['indoor']) }}">
+                        {{ @errors['indoor'] }}
+                    </check>
+                </span><br>
             </div>
 
             <div class="col-md-12">
@@ -47,7 +52,12 @@
                                                                  name="outdoor[]"
                                                                  value="{{ @out }}"> {{ ucfirst(@out) }}</label>
                     </repeat>
-
+                </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['outdoor']) }}">
+                        {{ @errors['outdoor'] }}
+                    </check>
+                </span><br>
                     <div class="text-right mt-2 mb-2">
                         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </div>

@@ -6,7 +6,7 @@ function validName($name) {
 }
 
 function validAge($age) {
-    return !is_nan($age) && $age >= 18 && $age <= 118;
+    return !is_nan((floatval($age))) && $age >= 18 && $age <= 118;
 }
 function validPhone($phone) {
     // Allow +, - and . in phone number
@@ -29,10 +29,28 @@ function validEmail($email) {
 
 function validOutdoor($outdoor) {
     $outdoors = getOutDoor();
-    return in_array($outdoor, $outdoors);
+    if(empty($outdoor)) {
+        return false;
+    }
+
+    foreach($outdoor as $key) {
+        if(in_array($key, $outdoors)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function validIndoor($indoor) {
     $indoors = getInDoor();
-    return in_array($indoor, $indoors);
+    if(empty($indoor)) {
+        return false;
+    }
+
+    foreach($indoor as $key) {
+        if(in_array($key, $indoors)) {
+            return true;
+        }
+    }
+    return false;
 }

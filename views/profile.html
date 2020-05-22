@@ -32,6 +32,11 @@
                 <div class="col-mx-6">
                     <input  class="form-control" type="text" id="email" name="email">
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['email']) }}">
+                        {{ @errors['email'] }}
+                    </check>
+                </span><br>
 
                 <label for="state" class="col-mx-6 control-label"><strong>State</strong></label>
                 <div class="col-mx-6">

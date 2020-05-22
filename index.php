@@ -89,14 +89,20 @@ $f3->route('GET|POST /profile', function($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_SESSION);
 
-        //Store the data in the session array
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['state'] = $_POST['state'];
-        $_SESSION['seek'] = $_POST['seek'];
-        $_SESSION['bio'] = $_POST['bio'];
+        if(!validEmail($_POST['email'])) {
+            $f3->set('errors["email"]', "Invalid email");
+        }
 
-        //Redirect to interests page
-        $f3->reroute('/interests');
+        if (empty($f3->get('errors'))) {
+            //Store the data in the session array
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['state'] = $_POST['state'];
+            $_SESSION['seek'] = $_POST['seek'];
+            $_SESSION['bio'] = $_POST['bio'];
+
+            //Redirect to interests page
+            $f3->reroute('/interests');
+        }
     }
 
     $f3->set('state', $state);
@@ -113,14 +119,23 @@ $f3->route('GET|POST /interests', function($f3) {
 
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        var_dump($_POST);
+        //var_dump($_POST);
 
-        //Store the data in the session array
-        $_SESSION['indoor'] = $_POST['indoor'];
-        $_SESSION['outdoor'] = $_POST['outdoor'];
+        if(!validOutdoor($_POST['outdoor'])) {
+            $f3->set('errors["outdoor"]', "Select out-door activity(s)");
+        }
+        if(!validIndoor($_POST['indoor'])) {
+            $f3->set('errors["indoor"]', "Select in-door activity(s)");
+        }
 
-        //Redirect to summary page
-        $f3->reroute('/summary');
+        if (empty($f3->get('errors'))) {
+            //Store the data in the session array
+            $_SESSION['indoor'] = $_POST['indoor'];
+            $_SESSION['outdoor'] = $_POST['outdoor'];
+
+            //Redirect to summary page
+            $f3->reroute('/summary');
+        }
     }
 
     $f3->set('indoor', $indoor);
