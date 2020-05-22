@@ -69,10 +69,13 @@ $f3->route('GET|POST /personal', function($f3) {
             //Redirect to profile page
             $f3->reroute('/profile');
         }
-
-
     }
-
+    $f3->set('first', $_POST['first']);
+    $f3->set('last', $_POST['last']);
+    $f3->set('age', $_POST['age']);
+    $f3->set('phone', $_POST['phone']);
+    $f3->set('petName', $_POST['petName']);
+    $f3->set('petAge', $_POST['petAge']);
     $f3->set('gender', $gender);
     $f3->set('pGender', $gender);
 
