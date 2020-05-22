@@ -9,6 +9,7 @@ session_start();
 // require the autoload file
 require_once('vendor/autoload.php');
 require_once("model/data-layer.php");
+require_once("model/validation.php");
 
 // create an instance of the base class
 $f3 = Base::instance();
@@ -30,18 +31,46 @@ $f3->route('GET|POST /personal', function($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST);
 
-        //Store the data in the session array
-        $_SESSION['first'] = $_POST['first'];
-        $_SESSION['last'] = $_POST['last'];
-        $_SESSION['age'] = $_POST['age'];
-        $_SESSION['gender'] = $_POST['gender'];
-        $_SESSION['phone'] = $_POST['phone'];
-        $_SESSION['petName'] = $_POST['petName'];
-        $_SESSION['petAge'] = $_POST['petAge'];
-        $_SESSION['pGender'] = $_POST['pGender'];
+        //valid person
+        if(!validName($_POST['first'])) {
+            $f3->set('errors["first"]', "Invalid first name");
+        }
+        if(!validName($_POST['last'])) {
+            $f3->set('errors["last"]', "Invalid last name");
+        }
+        if(!validAge($_POST['age'])) {
+            $f3->set('errors["age"]', "Invalid age");
+        }
+        if(!validPhone($_POST['phone'])) {
+            $f3->set('errors["phone"]', "Invalid phone number");
+        }
 
-        //Redirect to Order 2 page
-        $f3->reroute('/profile');
+        // valid pet
+        if(!validName($_POST['petName'])) {
+            $f3->set('errors["petName"]', "Invalid pet name");
+        }
+        if(!validAge($_POST['petAge'])) {
+            $f3->set('errors["petAge"]', "Invalid pet age");
+        }
+
+        //Data is valid
+        if (empty($f3->get('errors'))) {
+
+            //Store the data in the session array
+            $_SESSION['first'] = $_POST['first'];
+            $_SESSION['last'] = $_POST['last'];
+            $_SESSION['age'] = $_POST['age'];
+            $_SESSION['gender'] = $_POST['gender'];
+            $_SESSION['phone'] = $_POST['phone'];
+            $_SESSION['petName'] = $_POST['petName'];
+            $_SESSION['petAge'] = $_POST['petAge'];
+            $_SESSION['pGender'] = $_POST['pGender'];
+
+            //Redirect to profile page
+            $f3->reroute('/profile');
+        }
+
+
     }
 
     $f3->set('gender', $gender);
@@ -58,7 +87,7 @@ $f3->route('GET|POST /profile', function($f3) {
 
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
 
         //Store the data in the session array
         $_SESSION['email'] = $_POST['email'];
@@ -66,7 +95,7 @@ $f3->route('GET|POST /profile', function($f3) {
         $_SESSION['seek'] = $_POST['seek'];
         $_SESSION['bio'] = $_POST['bio'];
 
-        //Redirect to Order 2 page
+        //Redirect to interests page
         $f3->reroute('/interests');
     }
 
@@ -90,7 +119,7 @@ $f3->route('GET|POST /interests', function($f3) {
         $_SESSION['indoor'] = $_POST['indoor'];
         $_SESSION['outdoor'] = $_POST['outdoor'];
 
-        //Redirect to Order 2 page
+        //Redirect to summary page
         $f3->reroute('/summary');
     }
 

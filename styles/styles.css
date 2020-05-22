@@ -8,3 +8,7 @@ div.row.border {
 img.img-fluid.rounded {
     margin-top: 50px;
 }
+
+.err {
+    color: darkred;
+}

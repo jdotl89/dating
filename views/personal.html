@@ -29,20 +29,34 @@
             <div class="col-md-8">
                 <!--OWNER INFORMATION-->
                 <label for="first" class="col-mx-8 control-label"><strong>First Name</strong></label>
-
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="first" name="first">
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['first']) }}">
+                        {{ @errors['first'] }}
+                    </check>
+                </span><br>
 
                 <label for="last" class="col-mx-8 control-label"><strong>Last Name</strong></label>
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="last" name="last">
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['last']) }}">
+                        {{ @errors['last'] }}
+                    </check>
+                </span><br>
 
                 <label for="age" class="col-mx-8 control-label"><strong>Age</strong></label>
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="age" name="age">
                 </div><br>
+                <span class="err">
+                    <check if="{{ isset(@errors['age']) }}">
+                        {{ @errors['age'] }}
+                    </check>
+                </span><br>
 
                 <label class="col-mx-8 control-label"><strong>Gender</strong></label>
                 <div class="col-mx-8">
@@ -58,19 +72,34 @@
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="phone" name="phone">
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['phone']) }}">
+                        {{ @errors['phone'] }}
+                    </check>
+                </span><br>
                 <hr>
 
                 <!--PET INFORMATION-->
                 <label for="petName" class="col-mx-8 control-label"><strong>Pet Name</strong></label>
-
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="petName" name="petName">
                 </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['petName']) }}">
+                        {{ @errors['petName'] }}
+                    </check>
+                </span><br>
 
                 <label for="petAge" class="col-mx-8 control-label"><strong>Pet Age</strong></label>
                 <div class="col-mx-8">
                     <input  class="form-control" type="text" id="petAge" name="petAge">
-                </div><br>
+                </div>
+                <span class="err">
+                    <check if="{{ isset(@errors['petAge']) }}">
+                        {{ @errors['petAge'] }}
+                    </check><br>
+                </span>
+                <br>
 
                 <label class="col-mx-8 control-label"><strong>Pet Gender</strong></label>
                 <div class="col-mx-8">
