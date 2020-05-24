@@ -31,9 +31,8 @@
                 <label class="col-mx-12 control-label"><strong>In-door Interests</strong></label>
                 <div class="col-sm-12">
                     <repeat group="{{ @indoor }}" value="{{ @in }}">
-                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox"
-                                      name="indoor[]"
-                                      value="{{ @in }}"> {{ ucfirst(@in) }}</label>
+                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox" name="indoor[]" value="{{ @in }}"
+                            <check if="{{ !empty(@selectedIn) && in_array(@in, @selectedIn) }}">checked="checked"</check>> {{ ucfirst(@in) }}</label>
                     </repeat>
                 </div>
                 <span class="err">
@@ -48,9 +47,8 @@
                 <label class="col-mx-6 control-label"><strong>Out-door Interests</strong></label>
                 <div class="col-sm-12">
                     <repeat group="{{ @outdoor }}" value="{{ @out }}">
-                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox"
-                                                                 name="outdoor[]"
-                                                                 value="{{ @out }}"> {{ ucfirst(@out) }}</label>
+                        <label class="col-md-2 mr-4 ml-2"><input type="checkbox" name="outdoor[]" value="{{ @out }}"
+                            <check if="{{ !empty(@selectedOut) && in_array(@out, @selectedOut) }}">checked="checked"</check>> {{ ucfirst(@out) }}</label>
                     </repeat>
                 </div>
                 <span class="err">
@@ -58,14 +56,12 @@
                         {{ @errors['outdoor'] }}
                     </check>
                 </span><br>
-                    <div class="text-right mt-2 mb-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    </div>
+                <div class="text-right mt-2 mb-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </div>
         </div>
     </form>
-
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

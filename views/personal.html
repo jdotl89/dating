@@ -62,7 +62,8 @@
                 <div class="col-mx-8">
                     <repeat group="{{ @gender }}" value="{{ @gend }}">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="gender" type="radio" id="{{ @gend }}" value="{{ @gend }}">
+                            <input class="form-check-input" name="gender" type="radio" id="{{ @gend }}"
+                                   value="{{ @gend }}" <check if="{{ @selectedPerson == @gend }}">checked="checked"</check>>
                             <label class="form-check-label" for="{{ @gend }}">{{ @gend }}</label>
                         </div>
                     </repeat>
@@ -105,8 +106,9 @@
                 <div class="col-mx-8">
                     <repeat group="{{ @pGender }}" value="{{ @pgend }}">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="pGender" type="radio" id="p{{ @pgend }}" value="{{ @pgend }}">
-                            <label class="form-check-label" for="p{{ @pgend }}">{{ @pgend }}</label>
+                            <input class="form-check-input" name="pGender" type="radio" id="{{ @pgend }}"
+                                   value="{{ @pgend }}" <check if="{{ @selectedPet == @pgend }}">checked="checked"</check>>
+                            <label class="form-check-label" for="{{ @pgend }}">{{ @pgend }}</label>
                         </div>
                     </repeat>
                 </div>

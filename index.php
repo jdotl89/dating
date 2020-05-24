@@ -29,7 +29,7 @@ $f3->route('GET|POST /personal', function($f3) {
     //$f3->reroute('/profile');
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //var_dump($_POST);
+        var_dump($_POST);
 
         //valid person
         if(!validName($_POST['first'])) {
@@ -54,7 +54,7 @@ $f3->route('GET|POST /personal', function($f3) {
         }
 
         //Data is valid
-        if (empty($f3->get('errors'))) {
+        if(empty($f3->get('errors'))) {
 
             //Store the data in the session array
             $_SESSION['first'] = $_POST['first'];
@@ -73,9 +73,11 @@ $f3->route('GET|POST /personal', function($f3) {
     $f3->set('first', $_POST['first']);
     $f3->set('last', $_POST['last']);
     $f3->set('age', $_POST['age']);
+    $f3->set('selectedPerson', $_POST['gender']);
     $f3->set('phone', $_POST['phone']);
     $f3->set('petName', $_POST['petName']);
     $f3->set('petAge', $_POST['petAge']);
+    $f3->set('selectedPet', $_POST['pGender']);
     $f3->set('gender', $gender);
     $f3->set('pGender', $gender);
 
@@ -87,7 +89,7 @@ $f3->route('GET|POST /personal', function($f3) {
 $f3->route('GET|POST /profile', function($f3) {
 
     $state = getStates();
-
+    $seeks = getGender();
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_SESSION);
@@ -108,6 +110,10 @@ $f3->route('GET|POST /profile', function($f3) {
         }
     }
 
+    $f3->set('selected', $_POST['state']);
+    $f3->set('selectedSeek', $_POST['seek']);
+    $f3->set('email', $_POST['email']);
+    $f3->set('seeks', $seeks);
     $f3->set('state', $state);
 
     $view = new Template();
@@ -141,6 +147,8 @@ $f3->route('GET|POST /interests', function($f3) {
         }
     }
 
+    $f3->set('selectedIn', $_POST['indoor']);
+    $f3->set('selectedOut', $_POST['outdoor']);
     $f3->set('indoor', $indoor);
     $f3->set('outdoor', $outdoor);
 

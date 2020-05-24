@@ -30,7 +30,7 @@
                 <!--OWNER INFORMATION-->
                 <label for="email" class="col-mx-6 control-label"><strong>Email</strong></label>
                 <div class="col-mx-6">
-                    <input  class="form-control" type="text" id="email" name="email" value="{{@}}">
+                    <input  class="form-control" type="text" id="email" name="email" value="{{ @email }}">
                 </div>
                 <span class="err">
                     <check if="{{ isset(@errors['email']) }}">
@@ -42,21 +42,21 @@
                 <div class="col-mx-6">
                     <select class="custom-select" name="state" id="state">
                         <repeat group="{{ @state }}" value="{{ @stat }}">
-                            <option value="{{ @stat }}" name="state">{{ @stat }}</option>
+                            <option value="{{ @stat }}" name="state"
+                                <check if="{{ @stat == @selected }}">selected="selected"</check>>{{ @stat }}</option>
                         </repeat>
                     </select>
                 </div><br>
 
                 <label class="col-mx-6 control-label"><strong>Seeking</strong></label>
                 <div class="col-mx-6">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="seek" type="radio" id="male" value="male">
-                        <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="seek" type="radio" id="female" value="female">
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
+                    <repeat group="{{ @seeks }}" value="{{ @seek }}">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="seek" type="radio" id="{{ @seek }}"
+                                   value="{{ @seek }}" <check if="{{ @selectedSeek == @seek }}">checked="checked"</check>>
+                            <label class="form-check-label" for="{{ @seek }}">{{ @seek }}</label>
+                        </div>
+                    </repeat>
                 </div><br>
             </div>
 
