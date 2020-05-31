@@ -32,25 +32,27 @@
             <label for="ownerid" class="control-label"><strong>Owner</strong></label>
             <div class="" id="ownerid">
                 <ul class="list-group">
-                    <li class="list-group-item">Name: {{ @SESSION.first}} {{ @SESSION.last}} </li>
-                    <li class="list-group-item">Gender: {{ @SESSION.gender}}</li>
-                    <li class="list-group-item">Age: {{ @SESSION.age}}</li>
-                    <li class="list-group-item">Phone: {{ @SESSION.phone}}</li>
-                    <li class="list-group-item">Email: {{ @SESSION.email}}</li>
-                    <li class="list-group-item">State: {{ @SESSION.state}}</li>
+                    <li class="list-group-item">Name: {{ @SESSION.user->getFname() }} {{ @SESSION.user->getLname() }} </li>
+                    <li class="list-group-item">Gender: {{ @SESSION.user->getGender() }}</li>
+                    <li class="list-group-item">Age: {{ @SESSION.user->getAge() }}</li>
+                    <li class="list-group-item">Phone: {{ @SESSION.user->getPhone() }}</li>
+                    <li class="list-group-item">Email: {{ @SESSION.user->getEmail() }}</li>
+                    <li class="list-group-item">State: {{ @SESSION.user->getState() }}</li>
                 </ul>
             </div>
 
             <label for="petid" class="control-label mt-2"><strong>Pet</strong></label>
             <div class="" id="petid">
                 <ul class="list-group">
-                    <li class="list-group-item">Name: {{ @SESSION.petName}}</li>
-                    <li class="list-group-item">Gender: {{ @SESSION.pGender}}</li>
-                    <li class="list-group-item">Age: {{ @SESSION.petAge}}</li>
-                    <li class="list-group-item">Seeking: {{ @SESSION.seek}}</li>
-                    <li class="list-group-item"><check if="{{ isset(@SESSION.indoor) }}">
-                        Interest: {{ implode(@SESSION.indoor, ", ") }}, {{ implode(@SESSION.outdoor, ", ") }}
-                    </check></li>
+                    <li class="list-group-item">Name: {{ @SESSION.user->getPname() }}</li>
+                    <li class="list-group-item">Gender: {{ @SESSION.user->getPgender() }}</li>
+                    <li class="list-group-item">Age: {{ @SESSION.user->getPage() }}</li>
+                    <li class="list-group-item">Seeking: {{ @SESSION.user->getSeeking() }}</li>
+                    <check if="{{ @SESSION.user->getMember() == 'premium' }}">
+                        <li class="list-group-item"><check if="{{ !empty(@SESSION.user->getInDoorInterests()) }}">
+                        Interest: {{ implode(@SESSION.user->getInDoorInterests(), ", ") }}, {{ implode(@SESSION.user->getOutDoorInterests(), ", ") }}
+                        </check></li>
+                    </check>
                 </ul>
             </div>
         </div>
@@ -64,7 +66,7 @@
             <div class="mt-4 mb-4">
                 <label for="ownerid" class="col-mx-6 control-label"><strong>Biography</strong></label>
                 <div class="">
-                    <p>{{ @SESSION.bio}}</p>
+                    <p>{{ @SESSION.user->getBio()}}</p>
                 </div>
             </div>
 

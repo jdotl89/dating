@@ -57,15 +57,14 @@
                             <label class="form-check-label" for="{{ @seek }}">{{ @seek }}</label>
                         </div>
                     </repeat>
-                </div><br>
+                </div>
             </div>
 
 
             <div class="col-6">
                 <label for="bio" class="col-mx-6 control-label"><strong>Pet Biography</strong></label>
-
                 <div class="col-mx-6">
-                    <textarea  class="form-control"  id="bio" name="bio" rows="6" cols="50"></textarea>
+                    <textarea class="form-control" id="bio" name="bio" rows="6">{{ @POST.bio }}</textarea>
                 </div>
 
                 <div class="col text-right mt-4 mb-4">

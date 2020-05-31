@@ -11,6 +11,10 @@ class Member
     private $_state;
     private $_seeking;
     private $_bio;
+    private $_pname;
+    private $_page;
+    private $_pgender;
+    private $_member;
 
     /** Default constructor
      * @param string $fname
@@ -18,18 +22,30 @@ class Member
      * @param string $age
      * @param string $gender
      * @param string $phone
+     * @param string $pname
+     * @param string $page
+     * @param string $pgender
+     * @param string $member
      */
     public function __construct($fname = "jon",
                                 $lname = "doe",
                                 $age = "20",
                                 $gender = "male",
-                                $phone = "342-206-5098")
+                                $phone = "342-206-5098",
+                                $pname = "fido",
+                                $page = "7",
+                                $pgender = "male",
+                                $member = "regular")
     {
         $this->setFname($fname);
         $this->setLname($lname);
         $this->setAge($age);
         $this->setGender($gender);
         $this->setPhone($phone);
+        $this->setPname($pname);
+        $this->setPage($page);
+        $this->setPgender($pgender);
+        $this->setMember($member);
     }
 
     /**
@@ -174,5 +190,69 @@ class Member
     public function setBio($bio)
     {
         $this->_bio = $bio;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPname()
+    {
+        return $this->_pname;
+    }
+
+    /**
+     * @param mixed $pname
+     */
+    public function setPname($pname)
+    {
+        $this->_pname = $pname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPage()
+    {
+        return $this->_page;
+    }
+
+    /**
+     * @param mixed $page
+     */
+    public function setPage($page)
+    {
+        $this->_page = $page;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPgender()
+    {
+        return $this->_pgender;
+    }
+
+    /**
+     * @param mixed $pgender
+     */
+    public function setPgender($pgender)
+    {
+        $this->_pgender = $pgender;
+    }
+
+    /**
+     * @param mixed $member
+     */
+    public function setMember($member)
+    {
+        $this->_pgender = $member;
+    }
+
+    /**
+     * @return member
+     */
+    public function getMember()
+    {
+        return $this->_member;
     }
 }
