@@ -76,14 +76,14 @@ $f3->route('GET|POST /personal', function($f3) {
             $user->setPgender($_POST['pGender']);
 
             //Store the data in the session array
-/*            $_SESSION['first'] = $_POST['first'];
-            $_SESSION['last'] = $_POST['last'];
-            $_SESSION['age'] = $_POST['age'];
-            $_SESSION['gender'] = $_POST['gender'];
-            $_SESSION['phone'] = $_POST['phone'];
-            $_SESSION['petName'] = $_POST['petName'];
-            $_SESSION['petAge'] = $_POST['petAge'];
-            $_SESSION['pGender'] = $_POST['pGender'];*/
+            /*            $_SESSION['first'] = $_POST['first'];
+                        $_SESSION['last'] = $_POST['last'];
+                        $_SESSION['age'] = $_POST['age'];
+                        $_SESSION['gender'] = $_POST['gender'];
+                        $_SESSION['phone'] = $_POST['phone'];
+                        $_SESSION['petName'] = $_POST['petName'];
+                        $_SESSION['petAge'] = $_POST['petAge'];
+                        $_SESSION['pGender'] = $_POST['pGender'];*/
             $_SESSION['user'] = $user;
 
             //Redirect to profile page
