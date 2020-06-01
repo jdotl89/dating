@@ -14,7 +14,6 @@ class Member
     private $_pname;
     private $_page;
     private $_pgender;
-    private $_member;
 
     /** Default constructor
      * @param string $fname
@@ -34,8 +33,7 @@ class Member
                                 $phone = "342-206-5098",
                                 $pname = "fido",
                                 $page = "7",
-                                $pgender = "male",
-                                $member = "regular")
+                                $pgender = "male")
     {
         $this->setFname($fname);
         $this->setLname($lname);
@@ -45,7 +43,6 @@ class Member
         $this->setPname($pname);
         $this->setPage($page);
         $this->setPgender($pgender);
-        $this->setMember($member);
     }
 
     /**
@@ -57,7 +54,8 @@ class Member
     }
 
     /**
-     * @param mixed $fname
+     * @param $fname sets the value
+     * to $this _fname
      */
     public function setFname($fname)
     {
@@ -65,7 +63,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _lname
      */
     public function getLname()
     {
@@ -73,7 +71,8 @@ class Member
     }
 
     /**
-     * @param mixed $lname
+     * @param $lname sets the value
+     * to $this _lname
      */
     public function setLname($lname)
     {
@@ -81,7 +80,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _age
      */
     public function getAge()
     {
@@ -89,7 +88,8 @@ class Member
     }
 
     /**
-     * @param mixed $age
+     * @param $age sets the value
+     * to $this _age
      */
     public function setAge($age)
     {
@@ -97,7 +97,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _gender
      */
     public function getGender()
     {
@@ -105,7 +105,8 @@ class Member
     }
 
     /**
-     * @param mixed $gender
+     * @param $gender sets the value
+     * to $this _gender
      */
     public function setGender($gender)
     {
@@ -113,7 +114,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _phone
      */
     public function getPhone()
     {
@@ -121,7 +122,8 @@ class Member
     }
 
     /**
-     * @param mixed $phone
+     * @param $phone sets the value
+     * to $this _phone
      */
     public function setPhone($phone)
     {
@@ -129,7 +131,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _email
      */
     public function getEmail()
     {
@@ -137,7 +139,8 @@ class Member
     }
 
     /**
-     * @param mixed $email
+     * @param $email sets the value
+     * to $this _email
      */
     public function setEmail($email)
     {
@@ -145,7 +148,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _state
      */
     public function getState()
     {
@@ -153,7 +156,8 @@ class Member
     }
 
     /**
-     * @param mixed $state
+     * @param $state sets the value
+     * to $this _state
      */
     public function setState($state)
     {
@@ -161,7 +165,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _seeking
      */
     public function getSeeking()
     {
@@ -169,7 +173,8 @@ class Member
     }
 
     /**
-     * @param mixed $seeking
+     * @param $seeking sets the value
+     * to $this _seeking
      */
     public function setSeeking($seeking)
     {
@@ -177,7 +182,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _bio
      */
     public function getBio()
     {
@@ -185,7 +190,8 @@ class Member
     }
 
     /**
-     * @param mixed $bio
+     * @param $bio sets the value
+     * to $this _bio
      */
     public function setBio($bio)
     {
@@ -193,7 +199,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _pname
      */
     public function getPname()
     {
@@ -201,7 +207,8 @@ class Member
     }
 
     /**
-     * @param mixed $pname
+     * @param $Pname sets the value
+     * to $this _Pname
      */
     public function setPname($pname)
     {
@@ -209,7 +216,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _page
      */
     public function getPage()
     {
@@ -217,7 +224,8 @@ class Member
     }
 
     /**
-     * @param mixed $page
+     * @param $Page sets the value
+     * to $this _Page
      */
     public function setPage($page)
     {
@@ -225,7 +233,7 @@ class Member
     }
 
     /**
-     * @return mixed
+     * @return $this _pgender
      */
     public function getPgender()
     {
@@ -233,26 +241,11 @@ class Member
     }
 
     /**
-     * @param mixed $pgender
+     * @param $pgender sets the value
+     * to $this _pgender
      */
     public function setPgender($pgender)
     {
         $this->_pgender = $pgender;
-    }
-
-    /**
-     * @param mixed $member
-     */
-    public function setMember($member)
-    {
-        $this->_pgender = $member;
-    }
-
-    /**
-     * @return member
-     */
-    public function getMember()
-    {
-        return $this->_member;
     }
 }

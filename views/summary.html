@@ -48,7 +48,7 @@
                     <li class="list-group-item">Gender: {{ @SESSION.user->getPgender() }}</li>
                     <li class="list-group-item">Age: {{ @SESSION.user->getPage() }}</li>
                     <li class="list-group-item">Seeking: {{ @SESSION.user->getSeeking() }}</li>
-                    <check if="{{ @SESSION.user->getMember() == 'premium' }}">
+                    <check if="{{ @SESSION.user instanceOf PremiumMember }}">
                         <li class="list-group-item"><check if="{{ !empty(@SESSION.user->getInDoorInterests()) }}">
                         Interest: {{ implode(@SESSION.user->getInDoorInterests(), ", ") }}, {{ implode(@SESSION.user->getOutDoorInterests(), ", ") }}
                         </check></li>
